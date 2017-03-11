@@ -17,5 +17,10 @@
 
 <resources>
     <string-array name="wallpapers" translatable="false">
+        <item>gallerona</item>
+        <item>inbound</item>
+        <item>overview</item>
+        <item>sideskirts</item>
+        <item>turoise</item>
     </string-array>
 </resources>
