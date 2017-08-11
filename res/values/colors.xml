@@ -19,4 +19,5 @@
 -->
 <resources>
     <color name="wallpaper_picker_translucent_gray">#66000000</color>
+    <color name="wallpaper_picker_set_text">#FF666666</color>
 </resources>
