@@ -59,5 +59,5 @@
     <!-- Option for setting the wallpaper only on the lock screen. -->
     <string name="which_wallpaper_option_lock_screen">Lock screen</string>
     <!-- Option for setting the wallpaper on both the home screen and lock screen. -->
-    <string name="which_wallpaper_option_home_screen_and_lock_screen">Home screen and lock screen</string>
+    <string name="which_wallpaper_option_home_screen_and_lock_screen">Both</string>
 </resources>
