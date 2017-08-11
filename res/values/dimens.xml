@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2013 The Android Open Source Project
+     Copyright (C) 2017 ParanoidAndroid Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,4 +20,9 @@
     <dimen name="wallpaperThumbnailWidth">106.5dp</dimen>
     <dimen name="wallpaperThumbnailHeight">94.5dp</dimen>
     <dimen name="wallpaperItemIconSize">32dp</dimen>
+
+    <!-- Wallpaper chooser -->
+    <dimen name="wallpaper_text_padding">20dp</dimen>
+    <dimen name="wallpaper_text_padding_left">25dp</dimen>
+    <dimen name="wallpaper_text_size">7sp</dimen>
 </resources>

@@ -39,4 +39,9 @@
         <item name="android:textColor">#ffffffff</item>
         <item name="android:background">?android:attr/selectableItemBackground</item>
     </style>
+
+    <style name="SimpleSetChooser" parent="@android:style/Theme.Material.Dialog">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
 </resources>
