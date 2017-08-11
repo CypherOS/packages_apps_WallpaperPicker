@@ -4,6 +4,11 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 
 import com.android.wallpaperpicker.R;
 
@@ -20,10 +25,42 @@ public class DialogUtils {
     public static void executeCropTaskAfterPrompt(
             Context context, final AsyncTask<Integer, ?, ?> cropTask,
             DialogInterface.OnCancelListener onCancelListener) {
+
+        final Icon[] icons = {
+            new Icon(R.drawable.ic_home),
+            new Icon(R.drawable.ic_lockscreen),
+            new Icon(R.drawable.ic_both),
+        };			
+			
+		ListAdapter adapter = new ArrayAdapter<Icon>(context,
+                android.R.layout.select_dialog_item,
+                android.R.id.text1, icons) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                String[] items = context.getResources().getStringArray(
+                        R.array.which_wallpaper_options);
+                float padding = context.getResources().getDimensionPixelSize(
+                        R.dimen.wallpaper_text_padding);
+                float leftPadding = context.getResources().getDimensionPixelSize(
+                        R.dimen.wallpaper_text_padding_left);
+                float textSize = context.getResources().getDimensionPixelSize(
+                        R.dimen.wallpaper_text_size);
+
+                View view = super.getView(position, convertView, parent);
+                TextView text = (TextView) view.findViewById(android.R.id.text1);
+                text.setText(items[position]);
+                text.setTextSize(textSize);
+                text.setCompoundDrawablesWithIntrinsicBounds(icons[position].icon, 0, 0, 0);
+                text.setPadding((int) leftPadding, 0, 0, 0);
+                text.setCompoundDrawablePadding((int) padding);
+
+                return view;
+            }
+        };
         if (Utilities.isAtLeastN()) {
-            new AlertDialog.Builder(context)
+            new AlertDialog.Builder(context, R.style.SimpleSetChooser)
                     .setTitle(R.string.wallpaper_instructions)
-                    .setItems(R.array.which_wallpaper_options, new DialogInterface.OnClickListener() {
+                    .setAdapter(adapter, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int selectedItemIndex) {
                         int whichWallpaper;
@@ -42,6 +79,13 @@ public class DialogUtils {
                 .show();
         } else {
             cropTask.execute(WallpaperManagerCompat.FLAG_SET_SYSTEM);
+        }
+    }
+	
+	public static class Icon{
+        public final int icon;
+        public Icon(Integer icon) {
+            this.icon = icon;
         }
     }
 }
