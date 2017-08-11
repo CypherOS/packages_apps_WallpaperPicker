@@ -17,5 +17,9 @@
 
 <resources>
     <string-array name="wallpapers" translatable="false">
+	    <item>bayside</item>
+        <item>hotelia</item>
+        <item>ocand</item>
+        <item>vibes</item>
     </string-array>
 </resources>
